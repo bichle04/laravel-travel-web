@@ -1,0 +1,146 @@
+@import url("remixicon.css");
+
+/* Mobile & Tablet */
+@media (max-width: 1023px) {
+  .banner {
+    flex-direction: column;
+  }
+
+  .s-full-width {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hide-on-mobile-tablet {
+    display: none !important;
+  }
+
+  .footer__contact {
+    flex-direction: column;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .footer__contact-name {
+    margin: 0 auto 0 0;
+  }
+
+  .footer__contact-form {
+    width: 100%;
+  }
+
+  .footer__contact__input {
+    width: 80%;
+  }
+
+  .footer__list {
+    margin-top: 30px;
+  }
+
+  .footer__list-heading {
+    margin: 12px 0;
+  }
+
+  .mobile-package__link {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 724px) {
+  .search__aside {
+    margin: 0 24px;
+  }
+
+  .banner__full-width .banner__heading {
+    text-align: left;
+  }
+
+  .banner__btn {
+    margin-left: 0;
+  }
+
+  .special-info {
+    padding:0 12px;
+    margin-bottom: 20px;
+  }
+
+  .special__book-link {
+    margin: 0 auto;
+    padding: 16px 40px;
+    margin: 12px auto;
+  }
+
+
+  .footer__contact__input {
+    width: 60%;
+  }
+
+  .footer__list {
+    text-align: center;
+  }
+
+  .footer__item {
+    justify-content: center;
+  }
+
+  .footer__inner {
+    margin: 0 20px;
+  }
+}
+
+.pl-4, .px-4 {
+  padding-left: 1.5rem!important;
+  /* padding-left: 1rem!important; */
+}
+
+.pr-4, .px-4 {
+  padding-right: 1.5rem!important;
+  /* padding-right: 1rem!important; */
+}
+
+.pl-2, .px-2 {
+  /* padding-left: 0.5rem!important; */
+  padding-left: 1.5rem!important;
+}
+
+.pr-2, .px-2 {
+  /* padding-right: 0.5rem!important; */
+  padding-right: 1.5rem!important;
+}
+
+.pb-2, .py-2 {
+  padding-bottom: 0.5rem!important;
+}
+
+.pt-2, .py-2 {
+  padding-top: 0.5rem!important;
+}
+
+.border {
+  border: 1px solid #dee2e6!important;
+}
+
+.bg-white {
+  background-color: #fff!important;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--iq-primary);
+  color: var(--iq-white);
+  text-shadow: none;
+}
+
+a {
+  color: var(--blue-color);
+}
+
