@@ -2,8 +2,8 @@
 
 @section('content')
     <!--
-                    DETAIL
-                -->
+        DETAIL
+    -->
     <div class="web-content web__wrap">
         <div class="special">
             <div class="grid wide">

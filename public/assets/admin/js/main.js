@@ -94,8 +94,58 @@ function getvalue() {
             }
         }
     });
-
 }
 
+// thống kê tour
+$(document).ready(function() {
+    var currentDate = new Date();
+    var currentMonth = currentDate.getMonth() + 1;
+    var currentYear = currentDate.getFullYear();
+    $('#month').val(currentMonth);
+    $('#year').val(currentYear);
+    
+    getThongke();
+});
+function getThongke() {
+    var month = $('#month').val();
+    var year = $('#year').val();
+    $.ajax({
+        type: 'POST',
+        dataType: 'JSON',
+        data: {month: month, year: year},
+        url: '/admin/dashboard/handle-tour',
+        success: function(data) {  
+            var tableBody = $('.table');
+            data.forEach(function(item) {
+                var row = '<tr><td >' + item.ten + '</td><td style="text-align:center">' + item.Tong + '</td></tr>'; 
+                tableBody.append(row); 
+               
+            });
+          
+    
+        },
+        
+    });
+}
+$('#sortOptions').change(function() {
+    var selectedOption = $(this).val();
+    sortTable(selectedOption);
+});
 
+function sortTable(option) {
+    var rows = $('.table').find('tr').not(':first');
+    // Chuyển đổi các hàng thành một mảng để sắp xếp
+    var rowsArray = rows.get();
+    // Sắp xếp mảng dựa trên tùy chọn được chọn
+    rowsArray.sort(function(row1, row2) {
+        var value1 = $(row1).find('td').eq(1).text();
+        var value2 = $(row2).find('td').eq(1).text();
+        if (option === 'asc') {
+            return parseFloat(value1) - parseFloat(value2);
+        } else if (option === 'desc') {
+            return parseFloat(value2) - parseFloat(value1);
+        }
+    });
+    $('.table').append(rowsArray);
+}
 

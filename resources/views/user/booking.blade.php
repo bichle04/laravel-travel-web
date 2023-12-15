@@ -3,31 +3,35 @@
 @section('content')
     <form action="" method="POST">
         <div class="web-content web__wrap">
-            <div class="special" style="margin-top: -10px">
+            <div class="special" style="margin-top: -10px">                
                 <div class="grid wide">
+                    <div style="margin-bottom: 20px">
+                        @include('admin.alert')
+                    </div>
                     <div class="row">
                         <div class="col l-5 m-12 c-12">
                             <div class="special-info">
                                 <div class="special__head" style=" text-align: center">
                                     <h3 class="special__heading">
                                         <span class="">Thông tin của bạn</span>
+                                        <input type="hidden" name="id_user" value="{{ Auth::user()->id }}">
                                     </h3>
                                 </div>
                                 <div class="special__desc">
                                     <span class="special_name">Họ và tên</span>
-                                    <input class="form-control" type="text" value="{{ Auth::user()->fname }}" required>
+                                    <input class="form-control" type="text" name="fname" value="{{ Auth::user()->fname }}" required>
                                 </div>
                                 <div class="special__desc">
                                     <span class="special_email">Email</span>
-                                    <input class="form-control" type="text" value="{{ Auth::user()->email }}">
+                                    <input class="form-control" type="text" name="email" value="{{ Auth::user()->email }}" required>
                                 </div>
                                 <div class="special__desc">
                                     <span class="special_tel">Số điện thoại</span>
-                                    <input class="form-control" type="text" value="0{{ Auth::user()->phone }}">
+                                    <input class="form-control" type="text" name="phone" value="0{{ Auth::user()->phone }}" required>
                                 </div>
                                 <div class="special__desc">
                                     <span class="special_tel">Ngày khởi hành</span>
-                                    <select class="form-control">
+                                    <select class="form-control" name="departure" id="departureSelect">
                                         <option value="0">-- Chọn ngày khởi hành --</option>
                                         @foreach ($schedules as $schedule)
                                             <option value="{{ $schedule->date }}">{{ \Carbon\Carbon::parse($schedule->date)->format('d-m-Y') }}</option>
@@ -40,8 +44,8 @@
                                             <span class="special__price-unit">Người lớn: </span>
                                         </div>
                                         <div class="col l-2 m-2 c-2">
-                                            <input class="form-control" type="number" id="qty_adult"
-                                                style="max-width: 50px; margin-left: auto;" value="1">
+                                            <input class="form-control" type="number" id="qty_adult" name="qty_adult"
+                                                style="max-width: 50px; margin-left: auto;" min="0" value="1">
                                         </div>
                                         <div class="col l-4 m-4 c-5">
                                             <span class="special__current-price" id="price_adult"
@@ -57,8 +61,8 @@
                                             <span class="special__price-unit">Trẻ em: </span>
                                         </div>
                                         <div class="col l-2 m-2 c-2">
-                                            <input class="form-control" type="number" id="qty_child"
-                                                style="max-width: 50px; margin-left: auto;" value="0">
+                                            <input class="form-control" type="number" id="qty_child" name="qty_child"
+                                                style="max-width: 50px; margin-left: auto;" min="0" value="0">
                                         </div>
                                         <div class="col l-4 m-4 c-5">
                                             <span class="special__current-price" id="price_child"
@@ -71,16 +75,14 @@
                                 <div class="special__price"
                                     style="border-top: 1px solid; padding-top: 15px; margin-top: 10px">
                                     <span class="special__price-unit" style="font-weight: bold">Tổng tiền: </span>
-                                    <span class="special__current-price" id="totalAll"
+                                    <span class="special__current-price" id="totalAll" name="total"
                                         style="margin-left: auto; color: var(--red-color); font-weight: bold">
-                                        {{ $tour->price_child }}
+                                        
                                     </span>
-                                    {{-- <span class="special__update">Cập nhật</span> --}}
+                                    <input type="hidden" name="total_price" id="total" value="">
                                 </div>
                                 <div class="btn__book">
-                                    {{-- <a href="/dat-tour/idtour={{ $tour->id }}/{{ $tour->url }}"
-                                        class="special__book-link">Đặt ngay</a> --}}
-                                    <button class="special__book-link">Đặt ngay</button>
+                                    <button class="special__book-link" onclick="validateBooking()">Đặt ngay</button>
                                 </div>
                             </div>
                         </div>
@@ -89,6 +91,7 @@
                                 <div class="special__img">
                                     <h3 class="special__heading" style="max-width: 500px; margin-bottom: 10px">
                                         <span class="">{{ $tour->name }}</span>
+                                        <input type="hidden" name="id_tour" value="{{ $tour->id }}">
                                     </h3>
                                     <img src="{{ $tour->file }}" style="max-width: 500px">
                                     <div class="infor_book">
@@ -113,6 +116,18 @@
 
     {{-- ================= Xử lí giá tiền ================= --}}
     <script>
+        function validateBooking() {
+            var selectedDate = document.getElementById('departureSelect').value;
+
+            // Kiểm tra xem người dùng đã chọn ngày hay chưa
+            if (selectedDate === '0') {
+                alert('Vui lòng chọn ngày khởi hành.');
+            } else {
+                // Người dùng đã chọn ngày, tiếp tục xử lý đặt tour
+                document.forms[0].submit(); // Gửi form nếu điều kiện đúng
+            }
+        }
+        
         function updateTotalPrice() {
             // Lấy số lượng và tính giá tiền Người lớn
             var quantityAdult = document.getElementById('qty_adult').value;
@@ -131,6 +146,7 @@
             document.getElementById('price_adult').innerText = totalPriceAdult.toLocaleString('vi-VN');
             document.getElementById('price_child').innerText = totalPriceChild.toLocaleString('vi-VN');
             document.getElementById('totalAll').innerText = totalAll.toLocaleString('vi-VN');
+            document.getElementById('total').value = totalAll;
         }
 
         document.getElementById('qty_adult').addEventListener('change', updateTotalPrice);

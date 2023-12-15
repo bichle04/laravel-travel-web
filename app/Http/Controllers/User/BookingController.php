@@ -30,4 +30,10 @@ class BookingController extends Controller
             'schedules' => $schedules
         ]);
     }
+
+    public function addBill(Request $request)
+    {
+        $this->bookService->create($request);
+        return redirect()->back();
+    }
 }

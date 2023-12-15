@@ -3,9 +3,11 @@
 
 namespace App\Http\Services\Booking;
 
+use App\Models\Bill;
 use App\Models\Schedule;
 use App\Models\Tour;
 use App\Models\Destination;
+use App\Jobs\SendMail;
 use Illuminate\Support\Str;
 
 class BookingService
@@ -34,4 +36,24 @@ class BookingService
                         ->orderby('date', 'asc')
                         ->get();  
    }
+   public function create($request)
+    {
+        try {
+            $request->except('_token');
+            $data = $request->all();
+            Bill::create($request->all());
+
+            session()->flash('success', 'Đặt Tour thành công!');
+
+            // Queue
+            SendMail::dispatch($data)->delay(now()->addSeconds(5));
+
+        } catch (\Exception $e) {
+            session()->flash('error', 'Đặt Tour thất bại! Vui lòng thử lại sau.');
+            \Log::info($e->getMessage());
+            return  false;
+        }
+
+        return  true;
+    }
 }

@@ -25,15 +25,15 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 // Truy cập admin
-Route::middleware(['auth', 'admin.access'])->group(function() {
+Route::middleware(['auth', 'admin.access'])->group(function () {
 
-    Route::prefix('admin')->group(function() {
+    Route::prefix('admin')->group(function () {
         # Admin
-        Route::get('/', [MainController::class, 'index'])->name('admin');
-        Route::get('main', [MainController::class, 'index']);
+        Route::get('/', [MainController::class, 'income'])->name('admin');
+        Route::get('main', [MainController::class, 'income']);
 
         # Điểm đến
-        Route::prefix('destinations')->group(function() {
+        Route::prefix('destinations')->group(function () {
             Route::get('add-destination', [DestinationController::class, 'addDes']);
             Route::post('add-destination', [DestinationController::class, 'handle']);
             Route::get('list-destination', [DestinationController::class, 'listDes']);
@@ -43,7 +43,7 @@ Route::middleware(['auth', 'admin.access'])->group(function() {
         });
 
         # Tours
-        Route::prefix('tours')->group(function() {
+        Route::prefix('tours')->group(function () {
             Route::get('add-tour', [TourController::class, 'addTour']);
             Route::post('add-tour', [TourController::class, 'handle']);
             Route::get('list-tour', [TourController::class, 'listTour']);
@@ -56,7 +56,7 @@ Route::middleware(['auth', 'admin.access'])->group(function() {
         # Schedules
         Route::prefix('schedules')->group(function () {
             Route::get('add-schedule', [ScheduleController::class, 'addSchedule']);
-            Route::post('add-schedule', [ScheduleController::class, 'store']); 
+            Route::post('add-schedule', [ScheduleController::class, 'store']);
             Route::get('list-schedule', [ScheduleController::class, 'listSchedule']);
             Route::get('edit-schedule/{schedule}', [ScheduleController::class, 'editSchedule']);
             Route::post('edit-schedule/{schedule}', [ScheduleController::class, 'updateSchedule']);
@@ -65,7 +65,7 @@ Route::middleware(['auth', 'admin.access'])->group(function() {
         });
 
         # Users
-        Route::prefix('users')->group(function() {
+        Route::prefix('users')->group(function () {
             Route::get('add-user', [LoginController::class, 'addUserByAdmin']);
             Route::post('add-user', [LoginController::class, 'handle_register']);
             Route::get('list-user', [UserController::class, 'listUser']);
@@ -74,10 +74,18 @@ Route::middleware(['auth', 'admin.access'])->group(function() {
             Route::DELETE('delUser', [UserController::class, 'delUser']);
         });
 
+        # Dashboard
+        Route::prefix('dashboard')->group(function () {
+            Route::get('/', [MainController::class, 'income'])->name('doanhthu');
+            Route::post('/handle-income', [MainController::class, 'handleIncome']);
+            Route::get('/number-tour', [MainController::class, 'numberTour'])->name('tour');
+            Route::post('/handle-tour', [MainController::class, 'handleTour']);
+        });
+
         # Upload img
         Route::post('upload/services', [UploadController::class, 'store']);
     });
-    
+
 });
 
 
@@ -87,7 +95,7 @@ Route::get('/trang-chu', [HomeController::class, 'index']);
 Route::get('/gioi-thieu', [HomeController::class, 'about']);
 
 // Điểm đến (Destination)
-Route::prefix('diem-den')->group(function() {
+Route::prefix('diem-den')->group(function () {
     Route::get('/', [\App\Http\Controllers\User\DestinationController::class, 'allDes'])->name('destination');
     Route::get('/trong-nuoc', [\App\Http\Controllers\User\DestinationController::class, 'inVN']);
     Route::get('/nuoc-ngoai', [\App\Http\Controllers\User\DestinationController::class, 'otherCountry']);
@@ -95,14 +103,15 @@ Route::prefix('diem-den')->group(function() {
 });
 
 // Tour
-Route::prefix('tour')->group(function() {
-    Route::get('/', [\App\Http\Controllers\User\TourController::class, 'allTour'])->name('allTour'); 
-    Route::get('/id-{id}/{url}', [\App\Http\Controllers\User\TourController::class, 'detail']); 
+Route::prefix('tour')->group(function () {
+    Route::get('/', [\App\Http\Controllers\User\TourController::class, 'allTour'])->name('allTour');
+    Route::get('/id-{id}/{url}', [\App\Http\Controllers\User\TourController::class, 'detail']);
 });
 
 // Đặt tour
 Route::prefix('/dat-tour')->group(function () {
     Route::get('/idtour={id}/{url}', [BookingController::class, 'booking']);
+    Route::post('/idtour={id}/{url}', [BookingController::class, 'addBill']);
 });
 
 

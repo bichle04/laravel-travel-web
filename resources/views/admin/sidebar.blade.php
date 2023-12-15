@@ -18,19 +18,22 @@
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
-                {{-- <li>
-                <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-home iq-arrow-left"></i><span>Shop</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="index.html"><i class="las la-house-damage"></i>Home Page</a></li>
-                   <li><a href="category.html"><i class="ri-function-line"></i>Category Page</a></li>
-                   <li><a href="book-page.html"><i class="ri-book-line"></i>Book Page</a></li>
-                   <li><a href="book-pdf.html"><i class="ri-file-pdf-line"></i>Book PDF</a></li>
-                   <li><a href="Checkout.html"><i class="ri-checkbox-multiple-blank-line"></i>Checkout</a></li>
-                  <li><a href="wishlist.html"><i class="ri-heart-line"></i>wishlist</a></li>
-                </ul>
-             </li> --}}
-                
                 <li class="active active-menu">
+                    <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
+                        <span class="ripple rippleEffect"></span>
+                        <i class="las la-home iq-arrow-left"></i>
+                        <span>Thống kê</span>
+                        <i class="ri-arrow-right-s-line iq-arrow-right"></i>
+                    </a>
+                    <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        <li><a href="/admin/dashboard"><i class="ri-function-line"></i>Doanh Thu</a>
+                        </li>
+                        <li>
+                            <a href="/admin/dashboard/number-tour"><i class="ri-function-line"></i>Số lượt đặt Tour</a>
+                        </li>
+                    </ul>
+                </li>                
+                <li>
                     <a href="#destination" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
                         <span class="ripple rippleEffect"></span><i class="las la-home iq-arrow-left"></i>
                         <span>Điểm đến</span><i class="ri-arrow-right-s-line iq-arrow-right"></i>
@@ -81,14 +84,6 @@
                         {{-- <li><a href="add-user.html"><i class="las la-plus-circle"></i>User Add</a></li>
                         <li><a href="user-list.html"><i class="las la-th-list"></i>User List</a></li> --}}
                     </ul>
-                </li>
-                <li>
-                    <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
-                        <span class="ripple rippleEffect"></span>
-                        <i class="las la-home iq-arrow-left"></i>
-                        <span>Thống kê</span>
-                        <i class="ri-arrow-right-s-line iq-arrow-right"></i>
-                    </a>
                 </li>
                 {{-- <li>
                     <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse"
@@ -259,15 +254,5 @@
                 </li> --}}
             </ul>
         </nav>
-        {{-- <div id="sidebar-bottom" class="p-3 position-relative">
-            <div class="iq-card">
-                <div class="iq-card-body">
-                    <div class="sidebarbottom-content">
-                        <div class="image"><img src="/assets/admin/images/page-img/side-bkg.png" alt=""></div>                           
-                        <button type="submit" class="btn w-100 btn-primary mt-4 view-more">Become Membership</button>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
 </div>
