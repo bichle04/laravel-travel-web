@@ -27,7 +27,7 @@ class UserService
 
     public function getUser()
     {
-        return User::paginate(10);
+        return User::search()->paginate(10);
     }
 
     public function updateUser($request, $user): bool

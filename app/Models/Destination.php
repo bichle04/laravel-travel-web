@@ -23,4 +23,12 @@ class Destination extends Model
     {
         return $this->hasMany(Tour::class, 'id_destination', 'id');
     }
+
+    public function scopeSearch($query)
+    {
+        if($key = request()->key) {
+            $query = $query->where('name','like','%' . $key . '%');
+        }
+        return $query;
+    }
 }

@@ -60,11 +60,91 @@
                                                 {!! \App\Helpers\Helper::price($tour->price_child) !!} đ/người
                                             </span>
                                         </div>
-                                        <span class="text-dark mb-4 pb-4 d-block font-size-description">{!! $tour->description !!}</span>
+                                        <span
+                                            class="text-dark mb-4 pb-4 d-block font-size-description">{!! $tour->description !!}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center">
+                        <h4 class="card-title mb-0">Chương trình Tour</h4>
+                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                            @if ($programe)
+                                <a href="/admin/tours/edit-programe/{{ $programe->id }}" class="btn btn-primary">Sửa nội
+                                    dung</a>
+                            @else
+                                <a href="/admin/tours/add-programe/{{ $tour->id }}" class="btn btn-primary">Thêm nội
+                                    dung</a>
+                            @endif
+
+                        </div>
+                    </div>
+                    <div class="iq-card-body pb-0">
+                        <div class="description-contens align-items-top row">
+                            <div class="col-md-11">
+                                @if ($programe)
+                                    <div class="prmTour">
+                                        {!! $programe->content !!}
+                                        <button class="read-more-btn">Xem thêm</button>
+                                    </div>
+                                @else
+                                    <h5 style="color: red; font-weight: bold">
+                                        Chưa có thông tin về chương trình Tour. Vui lòng thêm thông tin!
+                                    </h5>
+                                @endif
+                            </div>
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script>
+                                $(document).ready(function() {
+                                    $('.prmTour').each(function() {
+                                        var $description = $(this);
+                                        var content = $description.html();
+
+                                        if (content.length > 1000) {
+                                            var shortContent = content.substr(0, 1000) + '...';
+                                            $description.html(shortContent);
+
+                                            var $readMoreBtn = $('<button class="read-more-btn">Xem thêm</button>');
+                                            $description.append($readMoreBtn);
+
+                                            $readMoreBtn.on('click', function() {
+                                                $description.html(content);
+                                                $('.read-more-btn').css('display', 'none');
+                                            });
+                                        } else {
+                                            $readMoreBtn.css('display', 'none');
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center">
+                        <h4 class="card-title mb-0">Bình luận</h4>
+                    </div>
+                    <div class="iq-card-body pb-0">
+                        <div class="description-contens align-items-top row">
+                            <div class="col-md-12">
+                                @foreach ($comments as $cmt)
+                                    <div class="all__cmt ">
+                                        <label style="font-weight: bold">{{ $cmt->user->name }}</label>
+                                        <span style="font-size: 15px; color: #7F8487">{{ $cmt->created_at }}</span>
+                                        <p>{{ $cmt->star }} <i class="ri-star-fill"></i></p>
+                                        <p style="color: black">{{ $cmt->content }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-bottom: 20px">{!! $comments->appends(request()->all())->links() !!}</div>
                     </div>
                 </div>
             </div>

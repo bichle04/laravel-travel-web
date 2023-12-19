@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Tour\TourRequest;
 use App\Http\Services\Tour\TourAdminService;
+use App\Models\Programe;
 use \Illuminate\Http\JsonResponse;
 use App\Models\Tour;
 use Illuminate\Http\Request;
@@ -73,9 +74,43 @@ class TourController extends Controller
     public function detail(Tour $tour, $id)
     {
         $tour = $this->tourService->getId($id);
+        $programe = $this->tourService->getContent($id);
+        $comments = $this->tourService->getComment($id);
         return view('admin.tour.detail',[
             'title' => 'Thông tin chi tiết - ' . $tour->name,
+            'tour' => $tour,
+            'programe' => $programe,
+            'comments' => $comments
+        ]);
+    }
+
+    // ============================= PROGRAME =============================
+    public function addPrograme($id)
+    {
+        $tour = $this->tourService->getId($id);
+        return view('admin.tour.add-programe', [
+            'title' => 'Thêm chương trình Tour: ' . $tour->name,
             'tour' => $tour
         ]);
     }
+
+    public function create(Request $request)
+    {
+        $this->tourService->addPrograme($request);
+        return redirect()->back();  
+    }
+
+    public function editPrograme(Programe $programe)
+    {
+        return view('admin.tour.edit-programe', [
+            'title' => 'Chỉnh sửa chương trình Tour',
+            'programe' => $programe
+        ]);
+    }
+
+    public function updatePrograme(Programe $programe, Request $request)
+    {
+        $this->tourService->updatePrograme($request, $programe);
+        return redirect('/admin/tours/list-tour');
+    } 
 }

@@ -14,7 +14,7 @@ class DestinationService
                 'area' => (int) $request->input('area'),
                 'file' => (string) $request->input('file'),
                 'status' => (string) $request->input('status'),
-                'url' => Str::slug($request->input('name'), '-')   // Chuyển tên danh mục thành dạng phù hợp với url (Điện thoại -> dien-thoai)
+                'url' => Str::slug($request->input('name'), '-')
             ]);
             session()->flash('success', 'Thêm điểm đến thành công');
         } catch (\Exception $e) {
@@ -26,8 +26,7 @@ class DestinationService
 
     public function getAll()
     {
-        // return Menu::orderbyDesc('id')->paginate(3);    // sắp xếp danh mục được thêm mới nhất, 3 mục / trang
-        return Destination::paginate(10);
+        return Destination::search()->paginate(10);
     }
 
     public function updateDes($request, $destination): bool
@@ -81,7 +80,7 @@ class DestinationService
 // Destination Page
     public function showAll()
     {
-        return Destination::select('id', 'name', 'file', 'url')->paginate(12);
+        return Destination::select('id', 'name', 'file', 'url')->search()->paginate(12);
     }
 
     public function getId($id)
@@ -104,6 +103,7 @@ class DestinationService
                                 ['area', 0],
                                 ['status', 1]
                             ])
+                            ->search()
                             ->paginate(15);
     }
 
@@ -114,6 +114,7 @@ class DestinationService
                                 ['area', 1],
                                 ['status', 1]
                             ])
+                            ->search()
                             ->paginate(15);
     }
 }

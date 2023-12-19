@@ -5600,3 +5600,29 @@ Add User Page
   border: 2px solid rgb(58, 198, 245);
   margin: 0 20px;
 }
+
+.read-more-btn {
+  border: none;
+  font-size: 16px;
+  background: none;
+  color: blue;
+  padding-bottom: 20px;
+}
+
+.read-more-btn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.all__cmt {
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  margin: 10px 0 20px 0;
+  padding: 15px 15px 0 15px;
+  background-color: white;
+  font-size: 17px;
+}
+
+.ri-star-fill {
+  color: #F3B108;
+}

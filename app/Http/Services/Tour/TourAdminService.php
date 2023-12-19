@@ -4,7 +4,9 @@
 namespace App\Http\Services\Tour;
 
 
+use App\Models\Comment;
 use App\Models\Destination;
+use App\Models\Programe;
 use App\Models\Tour;
 use Illuminate\Support\Str;
 
@@ -18,8 +20,6 @@ class TourAdminService
     public function insert($request)
     {
         try {
-            // $request->except('_token');
-            // Tour::create($request->all());
             Tour::create([
                 'name' => (string) $request->input('name'),
                 'time' => (string) $request->input('time'),
@@ -44,7 +44,7 @@ class TourAdminService
 
     public function get()
     {
-        return Tour::with('destination')->paginate(15);
+        return Tour::with('destination')->search()->paginate(15);
     }
 
     public function updateTour($request, $tour)
@@ -84,5 +84,51 @@ class TourAdminService
         return Tour::where('id', $id)
                     ->with('destination')
                     ->firstOrFail();
+    }
+
+    public function getContent($id)
+    {
+        return Programe::where('id_tour', $id)->first();
+    }
+
+    //
+    public function getComment($id) {
+        return Comment::where('id_tour', $id)->orderbyDesc('created_at')->with('user')->paginate(5);
+    }
+
+
+    // ============================= PROGRAME =============================
+    public function addPrograme($request)
+    {
+        try {
+            $request->except('_token');
+            Programe::create($request->all());
+
+            session()->flash('success', 'Thêm Chương trình Tour thành công');
+        } catch (\Exception $e) {
+            session()->flash('error', 'Không thể thêm');
+            \Log::info($e->getMessage());
+            return  false;
+        }
+
+        return  true;
+    }
+
+    public function updatePrograme($request, $programe)
+    {
+        try {
+            $programe->fill($request->input());
+            
+            $programe->save();
+
+            session()->flash('success', 'Cập nhật thành công');
+        } catch (\Exception $e) {
+            session()->flash('error', 'Lỗi. Cập nhật thất bại');
+            \Log::info($e->getMessage());
+            
+            return false;
+        }
+
+        return true;
     }
 }

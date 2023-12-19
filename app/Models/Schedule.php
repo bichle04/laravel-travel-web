@@ -18,4 +18,14 @@ class Schedule extends Model
     {
         return $this->hasOne(Tour::class, 'id', 'id_tour');
     }
+
+    public function scopeSearch($query)
+    {
+        if($key = request()->key) {
+            $query = $query->whereHas('tour', function ($query) use ($key) {
+                $query->where('name', 'like', '%' . $key . '%');
+            });
+        }
+        return $query;
+    }
 }

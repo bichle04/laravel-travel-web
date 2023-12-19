@@ -44,6 +44,7 @@
                                     {!! \App\Helpers\Helper::showListDes($lists) !!}
                                 </tbody>
                             </table>
+                            <div style="text-align: center">{!! $lists->appends(request()->all())->links() !!}</div>
                         </div>
                     </div>
                 </div>

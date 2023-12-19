@@ -13,10 +13,4 @@
 <link rel="stylesheet" href="/assets/user/css/grid.css">
 <link rel="stylesheet" href="/assets/user/css/main.css">
 <link rel="stylesheet" href="/assets/user/css/responsive.css">
-
-
-
-<!-- Bootstrap CSS -->
-{{-- <link rel="stylesheet" href="/assets/admin/css/bootstrap.min.css"> --}}
-<!-- Typography CSS -->
-{{-- <link rel="stylesheet" href="/assets/admin/css/typography.css"> --}}
+<link rel="stylesheet" href="/assets/user/css/vote.css">

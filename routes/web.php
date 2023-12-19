@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\DestinationController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\UploadController;
@@ -28,7 +29,6 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::middleware(['auth', 'admin.access'])->group(function () {
 
     Route::prefix('admin')->group(function () {
-        # Admin
         Route::get('/', [MainController::class, 'income'])->name('admin');
         Route::get('main', [MainController::class, 'income']);
 
@@ -50,7 +50,11 @@ Route::middleware(['auth', 'admin.access'])->group(function () {
             Route::get('edit-tour/{tour}', [TourController::class, 'editTour']);
             Route::post('edit-tour/{tour}', [TourController::class, 'updateTour']);
             Route::DELETE('delTour', [TourController::class, 'delTour']);
-            Route::get('/id-{id}/{url}', [TourController::class, 'detail'])->name('detail');
+            Route::get('/id-{id}/{url}', [TourController::class, 'detail'])->name('detailTour');
+            Route::get('add-programe/{id}', [TourController::class, 'addPrograme']);
+            Route::post('add-programe/{id}', [TourController::class, 'create']);
+            Route::get('edit-programe/{programe}', [TourController::class, 'editPrograme']);
+            Route::post('edit-programe/{programe}', [TourController::class, 'updatePrograme']);
         });
 
         # Schedules
@@ -82,6 +86,11 @@ Route::middleware(['auth', 'admin.access'])->group(function () {
             Route::post('/handle-tour', [MainController::class, 'handleTour']);
         });
 
+        # Order
+        Route::prefix('order')->group(function(){
+            Route::get('/list-order',[OrderController::class,'index']);
+        });
+
         # Upload img
         Route::post('upload/services', [UploadController::class, 'store']);
     });
@@ -106,6 +115,10 @@ Route::prefix('diem-den')->group(function () {
 Route::prefix('tour')->group(function () {
     Route::get('/', [\App\Http\Controllers\User\TourController::class, 'allTour'])->name('allTour');
     Route::get('/id-{id}/{url}', [\App\Http\Controllers\User\TourController::class, 'detail']);
+
+    # Handle Comment
+    Route::post('load-comment',[\App\Http\Controllers\User\TourController::class,'load_comment']);
+    Route::post('add-comment', [\App\Http\Controllers\User\TourController::class, 'add_comment']);
 });
 
 // Đặt tour

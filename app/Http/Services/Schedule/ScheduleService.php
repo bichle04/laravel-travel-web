@@ -38,7 +38,7 @@ class ScheduleService
 
     public function get()
     {
-        return Schedule::with('tour')->orderByDesc('date')->paginate(10);
+        return Schedule::with('tour')->orderByDesc('date')->search()->paginate(10);
     }
     public function updateSchedule($request, $schedule)
     {

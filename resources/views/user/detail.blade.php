@@ -2,8 +2,8 @@
 
 @section('content')
     <!--
-        DETAIL
-    -->
+            DETAIL
+        -->
     <div class="web-content web__wrap">
         <div class="special">
             <div class="grid wide">
@@ -26,10 +26,6 @@
                     <div class="col l-5 l-o-1 m-12 c-12">
                         <div class="special-info">
                             <div class="special__head" style="margin-bottom: 20px">
-                                {{-- <span class="special__location" id="location">
-                                    <i class="ri-map-pin-line"></i>
-                                    {{ $tour->destination->name }}
-                                </span> --}}
                                 <h3 class="special__heading">
                                     <span class="">{{ $tour->name }}</span>
                                 </h3>
@@ -46,15 +42,15 @@
                                     {!! \App\Helpers\Helper::price($tour->price_child) !!}
                                 </span>
                             </div>
-                            {{-- <a href="./datphong.html" class="special__book-link">book now</a> --}}
                             <div class="special__desc">
                                 {!! $tour->description !!}
                                 <button class="read-more-btn">Xem thêm</button>
                             </div>
                             <div class="btn__book">
-                                @if($tour->price != NULL && $tour->price_child != NULL)
+                                @if ($tour->price != null && $tour->price_child != null)
                                     @if (Auth::check())
-                                        <a href="/dat-tour/idtour={{ $tour->id }}/{{ $tour->url }}" class="special__book-link">Đặt ngay</a>
+                                        <a href="/dat-tour/idtour={{ $tour->id }}/{{ $tour->url }}"
+                                            class="special__book-link">Đặt ngay</a>
                                     @else
                                         <a href="javascript:void(0);" onclick="showAlertAndRedirect('/dang-nhap')"
                                             class="special__book-link">Đặt ngay</a>
@@ -95,6 +91,66 @@
                             });
                         });
                     </script>
+                    <div class="col l-12" style="margin: 30px 0">
+                        <h3 class="package-menu__heading"><span class="blue-underline">Chương trình Tour</span></h3>
+
+                        @if ($programe)
+                            <div class="special__desc">
+                                {!! $programe->content !!}
+                                <button class="read-more-btn">Xem thêm</button>
+                            </div>
+                        @else
+                            <div class="special__blank">
+                                <h5 style="color: red; font-weight: bold">
+                                    Chưa có thông tin về chương trình Tour này!
+                                </h5>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col l-12 m-12 c-12 box__cmt" style="margin: 50px 0">
+                        <h3 class="package-menu__heading pd__box">Bình luận</h3>
+                        @if (Auth::check())
+                            <form action="" method="POST" role="form">
+                                <div class="write__cmt">
+                                    <label style="font-weight: bold">
+                                        {{ Auth::user()->name }}
+                                        <input type="hidden" name="id_user" id="id_user" value="{{ Auth::user()->id }}">
+                                        <input type="hidden" name="id_tour" id="id_tour" value="{{ $tour->id }}">
+                                    </label><br>
+                                    <div id="rating">
+                                        <input class="star-input" type="radio" id="star5" name="rating"
+                                            value="5" />
+                                        <label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                                        <input class="star-input" type="radio" id="star4" name="rating"
+                                            value="4" />
+                                        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+
+                                        <input class="star-input" type="radio" id="star3" name="rating"
+                                            value="3" />
+                                        <label class="full" for="star3" title="Meh - 3 stars"></label>
+
+                                        <input class="star-input" type="radio" id="star2" name="rating"
+                                            value="2" />
+                                        <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                        <input class="star-input" type="radio" id="star1" name="rating"
+                                            value="1" />
+                                        <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                    </div>
+                                    <textarea class="content__cmt" name="content" id="content" rows="3" placeholder="Viết bình luận"></textarea>
+                                    <div id="notificate" style="color: green; margin-bottom: 7px">
+
+                                    </div>
+                                    <button type="submit" id="btn_submit">Gửi</button>
+                                </div>
+                            </form>
+                            <hr>
+                        @endif
+                        <div class="show_new_cmt">
+
+                        </div>
+                    </div>
                     <div class="col l-12" style="margin: 30px 0">
                         <h3 class="package-menu__heading"><span class="green-underline">Tour liên quan</span></h3>
                     </div>
@@ -140,4 +196,55 @@
             </div>
         </div>
     </div>
+
+    <script>
+        var _csrf = '{{ csrf_token() }}';
+        $(document).ready(function() {
+            load_comment();
+
+            function load_comment() {
+                var id_tour = $('#id_tour').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "/tour/load-comment",
+                    data: {
+                        id_tour: id_tour,
+                        _token: _csrf
+                    },
+                    success: function(rs) {
+                        $('.show_new_cmt').html(rs);
+                    }
+                });
+
+                $('#btn_submit').click(function(e) {
+                    e.preventDefault();
+            
+                    var id_tour = $('#id_tour').val();
+                    var id_user = $('#id_user').val();
+                    var content = $('#content').val();
+                    var star = $('input.star-input:checked').val();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/tour/add-comment",
+                        data: {
+                            id_tour: id_tour,
+                            id_user: id_user,
+                            content: content,
+                            star: star,
+                            _token: _csrf
+                        },
+                        success: function(rs) {
+                            $('#notificate').html('<span>Thêm bình luận thành công!</span>');
+                            load_comment();
+                            $('#notificate').fadeOut(3000);
+                            $('#content').val('');
+                            $('input[type="radio"]').prop('checked', false);
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 @endsection

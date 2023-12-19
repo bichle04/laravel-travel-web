@@ -31,4 +31,12 @@ class Tour extends Model
     {
         return $this->hasMany(Schedule::class, 'id_tour', 'id');
     }
+
+    public function scopeSearch($query)
+    {
+        if($key = request()->key) {
+            $query = $query->where('name','like','%' . $key . '%');
+        }
+        return $query;
+    }
 }

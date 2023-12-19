@@ -20,4 +20,9 @@ class Bill extends Model
         'qty_child',
         'total_price'
     ];
+
+    public function tour()
+    {
+        return $this->hasOne(Tour::class, 'id', 'id_tour');
+    }
 }

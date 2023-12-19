@@ -56,4 +56,15 @@ class BookingService
 
         return  true;
     }
+
+    // ====================== ADMIN-ORDER ======================
+    public function getSchedule()
+    {
+        return Schedule::orderbyDesc('date')->paginate(10);
+    }
+
+    public function getQty()
+    {
+        return Bill::select('id_user');
+    }
 }

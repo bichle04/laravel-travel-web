@@ -3,6 +3,8 @@
 
 namespace App\Http\Services\Tour;
 
+use App\Models\Comment;
+use App\Models\Programe;
 use App\Models\Tour;
 use Illuminate\Support\Str;
 
@@ -13,18 +15,9 @@ class TourService
         return Tour::select('id', 'name', 'file', 'time', 'price', 'description', 'url', 'id_destination')
                     ->where('status', 1)
                     ->with('destination')
+                    ->search()
                     ->paginate(15);
     }
-
-    // public function slider()
-    // {
-    //     return Tour::select('file')->where('status', 1)->orderbyDesc('id')->take(9)->get();
-    // }
-
-    // public function suggest()
-    // {
-    //     return Tour::select('name', 'file', 'author', 'price', 'url')->where('status', 1)->take(12)->get();
-    // }
 
     public function new()
     {
@@ -56,5 +49,10 @@ class TourService
                         ->orderbyDesc('id')
                         ->take(5)
                         ->get();
+    }
+
+    public function getContent($id)
+    {
+        return Programe::where('id_tour', $id)->first();
     }
 }
