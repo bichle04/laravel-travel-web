@@ -60,11 +60,11 @@ class BookingService
     // ====================== ADMIN-ORDER ======================
     public function getSchedule()
     {
-        return Schedule::orderbyDesc('date')->paginate(10);
-    }
+        return Bill::join('tours', 'bills.id_tour', '=', 'tours.id')
+        ->selectRaw('tours.id as id,tours.url as url,tours.name as ten, COUNT(bills.id_user) as Tong ,departure')
 
-    public function getQty()
-    {
-        return Bill::select('id_user');
+         ->groupBy('bills.id_tour','departure')
+         ->orderBy('departure', 'asc')
+         ->paginate(10);
     }
 }

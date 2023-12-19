@@ -44,35 +44,17 @@
                                     @foreach ($schedules as $schedule)
                                         <tr>
                                             <td style="text-align:center">{{ $stt++ }}</td>
-                                            <td><a href="/admin/schedules/id={{ $schedule->tour->id }}/{{ $schedule->tour->url }}"
-                                                    class="link-name">{{ $schedule->tour->name }}</a></td>
-
-                            <!-- =================== Chỗ ni để hiển thị tổng số lượt đặt tour ================== -->
-                                            <td style="text-align:center">{{ $schedule->id }}</td>
-                            <!-- =============================================================================== -->
+                                            <td><a href="/admin/schedules/id={{ $schedule->id }}/{{ $schedule->url }}"
+                                                    class="link-name">{{ $schedule->ten }}</a></td>
+                                            <td style="text-align:center">{{ $schedule->Tong }}</td>
                             
                                             <td style="text-align:center">
-                                                {{ \Carbon\Carbon::parse($schedule->date)->format('d-m-Y') }}
+                                                {{ \Carbon\Carbon::parse($schedule->departure)->format('d-m-Y') }}
                                             </td>
-                                            {{-- <td style="text-align:center">
-                                                <div class="flex align-items-center list-user-action">
-                                                    <a class="bg-primary" data-toggle="tooltip" data-placement="top"
-                                                        title="" data-original-title="Sửa"
-                                                        href="/admin/schedules/edit-schedule/{{ $schedule->id }}">
-                                                        <i class="ri-pencil-line"></i>
-                                                    </a>
-                                                    <a class="bg-primary" data-toggle="tooltip" data-placement="top"
-                                                        title="" data-original-title="Xoá" href="#"
-                                                        onclick="delRow({{ $schedule->id }}, '/admin/schedules/delSchedule')">
-                                                        <i class="ri-delete-bin-line"></i>
-                                                    </a>
-                                                </div>
-                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{-- Tạo liên kết phân trang --}}
                             <div style="text-align: center">{!! $schedules->appends(request()->all())->links() !!}</div>
                         </div>
                     </div>

@@ -19,8 +19,7 @@ class OrderController extends Controller
     {
         return view('admin.order.list', [
             'title' => 'Danh sách đơn đặt Tour',
-            'schedules' => $this->orderService->getSchedule(),
-            'orders' => $this->orderService->getQty()
+            'schedules' => $this->orderService->getSchedule()
         ]);
     }
 
