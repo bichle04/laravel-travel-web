@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Programe;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -42,7 +43,11 @@ class YourOrder extends Mailable
         $id_tour = $this->data['id_tour'];
         $tour = Tour::select('name')->where('id', $id_tour)->first();
         $tour_name = $tour->name;
-        $dataWithTourName = array_merge($this->data, ['tour_name' => $tour_name]);
+
+        $pg = Programe::select('content')->where('id_tour', $id_tour)->first();
+        $pg_content = $pg ? $pg->content : 'Chúng tôi sẽ thông báo với bạn sớm!';
+        $dataWithTourName = array_merge($this->data, ['tour_name' => $tour_name, 'pg_content' => $pg_content]);
+
         return (new Content('mail.content'))->with($dataWithTourName);
     }
 
