@@ -5,13 +5,12 @@
     <div class="navbar__menu-info">
         <ul class="navbar__menu-list">
             <div class="navbar__menu-head">
-                <p>best</p>
+                <p style="font-weight: bold">Chuyến đi</p>
                 <h3 class="navbar__menu-heading">
-                    <span class="yellow-underline">Packages</span>
+                    <span class="yellow-underline">thú vị</span>
                 </h3>
             </div>
 
-            {{-- {!! \App\Helpers\Helper::showInSidebar($tours) !!} --}}
             @foreach ($tours as $tour)
                 <li class="navbar__menu-item">
                     <div style="background-image: url({{ $tour->file}});" class="navbar__menu-item-img"></div>

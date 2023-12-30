@@ -50,7 +50,7 @@
                                         <div class="col l-4 m-4 c-5">
                                             <span class="special__current-price" id="price_adult"
                                                 style="margin-left: auto; color: #1bbc9b;">
-                                                {{ str_replace(',', '.', number_format($tour->price)) }}
+                                                {{ number_format($tour->price, 0, '', '.') }}
                                             </span>
                                         </div>
                                     </div>
@@ -123,8 +123,7 @@
             if (selectedDate === '0') {
                 alert('Vui lòng chọn ngày khởi hành.');
             } else {
-                // Người dùng đã chọn ngày, tiếp tục xử lý đặt tour
-                document.forms[0].submit(); // Gửi form nếu điều kiện đúng
+                document.forms[0].submit();
             }
         }
         

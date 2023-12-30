@@ -26,7 +26,6 @@ class BookingController extends Controller
             'title' => 'Đặt Tour ' . $tour->name,
             'isDetail' => true,
             'tour' => $tour,
-            'destinations' => $this->bookService->getMenu(), 
             'schedules' => $schedules
         ]);
     }

@@ -147,28 +147,3 @@
 </body>
 
 </html>
-
-
-{{-- @section('content')
-    <div class="container-fluid" style="margin-top: -20px">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="iq-card">
-                    <div class="iq-card-header d-flex justify-content-between">
-                        <div class="iq-header-title">
-                            <h4 class="card-title">{{ $title }}</h4>
-                        </div>
-                    </div>
-                    <div class="iq-card-body">
-                        <span class="lb__year">Nhập năm : </span><input type="number" id="income_year" class="input__year"
-                            name="year">
-                        <button type="button" class="btn btn-primary" style="font-weight: bold;" onclick="getInfo()">Thống
-                            kê</button>
-                    </div>
-                    <div id="chart"></div>
-                </div>
-            </div>
-        </div>
-        @csrf
-    </div>
-@endsection --}}

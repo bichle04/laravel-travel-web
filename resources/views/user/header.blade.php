@@ -30,21 +30,7 @@
                         <li class="navbar__item">
                             <a href="/gioi-thieu" class="navbar__item-link">Giới thiệu</a>
                         </li>
-                        {{-- <li class="navbar__item navbar__item--booking">
-                            <a href="/dat-ve" class="navbar__item-link" target="_blank">Đặt ngay</a>
-                        </li> --}}
-                        <!-- <li class="navbar__item">
-                                    <a href="./LOGIN/login.html" class="navbar__item-link" target="_blank" >
-                                        <i class="fas fa-user" style="color: #ffffff; transition: transform 0.3s ease;"></i>
-                                    </a>
-                                </li> -->
                     </ul>
-                    <!-- <div style="margin-inline-end: 5%;" >
-                                <a href="./LOGIN/login.html" class="navbar__item-link navbar__item" id="User" target="_blank" >
-                                    <i class="fas fa-user" style="color: #ffffff; transition: transform 0.3s ease;"></i>
-                                </a>
-                            </div> -->
-
                 </div>
 
                 <!-- MENU -->
@@ -68,40 +54,6 @@
                                             {{ Auth::user()->name }}
                                         </h5>
                                     </div>
-                                    <a href="profile-edit.html" class="txt-drop">
-                                        <div class="align-items-center">
-                                            <div class="ml-3">
-                                                <h6 class="mb-0">Tài khoản của tôi</h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    {{-- <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
-                                    <div class="media align-items-center">
-                                        <div class="rounded iq-card-icon iq-bg-primary">
-                                            <i class="ri-profile-line"></i>
-                                        </div>
-                                        <div class="media-body ml-3">
-                                            <h6 class="mb-0 ">Sổ địa chỉ</h6>
-                                        </div>
-                                    </div>
-                                    </a> --}}
-                                    <a href="#" class="txt-drop">
-                                        <div class="align-items-center">
-                                            <div class="ml-3">
-                                                <h6 class="mb-0">Thông tin đơn hàng</h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    {{-- <a href="#" class="iq-sub-card iq-bg-primary-hover">
-                                    <div class="media align-items-center">
-                                        <div class="rounded iq-card-icon iq-bg-primary">
-                                            <i class="ri-heart-line"></i>
-                                        </div>
-                                        <div class="media-body ml-3">
-                                            <h6 class="mb-0 ">Yêu Thích</h6>
-                                        </div>
-                                    </div>
-                                    </a> --}}
                                     <div class="d-inline-block w-100 text-center p-3" style="text-align: center">
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
@@ -113,12 +65,6 @@
                                 </div>
                             @endif
                         </div>
-                        {{-- <div class="user__icon" style="margin-left: 130px;">
-                            <a href="/login" class="navbar__item-link navbar__item" id="User"
-                                target="_blank">
-                                <i class="fas fa-user" style="color: #ffffff; transition: transform 0.3s ease;"></i>
-                            </a>
-                        </div> --}}
                         @include('user.sidebar')
                     </div>
                 </div>

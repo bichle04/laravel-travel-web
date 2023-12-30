@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\Booking\BookingService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -20,6 +21,19 @@ class OrderController extends Controller
         return view('admin.order.list', [
             'title' => 'Danh sách đơn đặt Tour',
             'schedules' => $this->orderService->getSchedule()
+        ]);
+    }
+
+    public function listUser($id, $depature)
+    {
+        $tourName = $this->orderService->getName($id);
+        $bill = $this->orderService->getInfo($id, $depature);
+        
+        return view('admin.order.list-user', [
+            'title'=>"Danh sách khách hàng",
+            'tourName' => $tourName->name,
+            'date' => Carbon::parse($depature)->format('d-m-Y'),
+            'bills' => $bill
         ]);
     }
 

@@ -17,15 +17,9 @@
                                 <label class="text-lb">Điểm đến:</label>
                                 <input type="text" class="form-control" name="name" placeholder="Nhập điểm đến">
                             </div>
-                            {{-- <div class="form-group">
-                                <label class="text-lb">Description:</label>
-                                <textarea class="form-control" rows="4" name="content_category" placeholder="Enter description"></textarea>
-                            </div> --}}
                             <select class="form-control" id="" name="area">
-                                {{-- @foreach($destinations as $destination) --}}
-                                    <option value="0">Trong nước</option>
-                                    <option value="1">Nước ngoài</option>
-                                {{-- @endforeach --}}
+                                <option value="0">Trong nước</option>
+                                <option value="1">Nước ngoài</option>
                             </select>
                             <div class="form-group">
                                 <label class="text-lb">Thêm ảnh:</label>

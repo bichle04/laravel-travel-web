@@ -11,7 +11,6 @@ class UploadService
     {
         if ($request->hasFile('file')) {
             try {
-
                 $file = $request->file('file');
                 $name = $file->getClientOriginalName();
 

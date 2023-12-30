@@ -114,7 +114,7 @@ class Helper{
 
     public static function price($price = 0, $price_child = 0)
     {
-        if ($price != 0 || $price_child != 0) return str_replace(',', '.', number_format($price));
+        if ($price != 0 || $price_child != 0) return number_format($price, 0, '', '.');
         return '<a href="lien-he.html" style="color: red">Liên hệ</a>';
     }
 }

@@ -10,11 +10,11 @@ class DestinationService
     {
         try {
             Destination::create([
-                'name' => (string) $request->input('name'),
-                'area' => (int) $request->input('area'),
-                'file' => (string) $request->input('file'),
+                'name'  => (string) $request->input('name'),
+                'area'  => (int) $request->input('area'),
+                'file'  => (string) $request->input('file'),
                 'status' => (string) $request->input('status'),
-                'url' => Str::slug($request->input('name'), '-')
+                'url'   => Str::slug($request->input('name'), '-')
             ]);
             session()->flash('success', 'Thêm điểm đến thành công');
         } catch (\Exception $e) {

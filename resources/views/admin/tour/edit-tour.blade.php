@@ -31,16 +31,6 @@
                                 <label class="text-lb">Thời gian:</label>
                                 <input type="text" class="form-control" name="time" value="{{ $tour->time }}">
                             </div>
-                            {{-- <div class="form-group">
-                                <label class="text-lb">Tác giả sách:</label>
-                                <input type="text" class="form-control" name="author" 
-                                    value="{{ $product->author }}" placeholder="Nhập tên tác giả">
-                            </div>
-                            <div class="form-group">
-                                <label class="text-lb">Nhà xuất bản:</label>
-                                <input type="text" class="form-control" name="nxb" 
-                                    value="{{ $product->nxb }}" placeholder="Nhập tên Nhà xuất bản">
-                            </div> --}}
                             <div class="form-group">
                                 <label class="text-lb">Chọn ảnh:</label>
                                 <div>
@@ -79,7 +69,6 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="font-weight: bold">Cập nhật</button>
-                            {{-- <button type="reset" class="btn btn-danger">Trở lại</button> --}}
 
                             <!-- Tạo token -->
                             @csrf

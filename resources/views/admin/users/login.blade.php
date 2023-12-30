@@ -36,21 +36,9 @@
 								</div>
 
 								<div class="form-group">
-									<label for="password">Mật khẩu
-										<a href="forgot.html" class="float-right">
-											Quên mật khẩu?
-										</a>
-									</label>
+									<label for="password">Mật khẩu: </label>
 									<input id="password" type="password" class="form-control" name="password" data-eye 
 										placeholder="Nhập mật khẩu">
-								</div>
-
-								<div class="form-group">
-									<div class="custom-checkbox custom-control">
-										<input type="checkbox" name="remember" id="remember"
-											class="custom-control-input">
-										<label for="remember" class="custom-control-label">Lưu đăng nhập</label>
-									</div>
 								</div>
 
 								<div class="form-group m-0">

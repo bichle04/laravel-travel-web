@@ -65,6 +65,22 @@ class BookingService
 
          ->groupBy('bills.id_tour','departure')
          ->orderBy('departure', 'asc')
+         ->search()
          ->paginate(10);
+    }
+
+    public function getName($id)
+    {
+        return Tour::select('name')->where('id', $id)->first();
+    }
+
+    public function getInfo($id, $depature)
+    {
+        return Bill::where([
+                        ['id_tour', $id],
+                        ['departure', $depature]
+                    ])
+                    ->search()
+                    ->paginate(10);
     }
 }

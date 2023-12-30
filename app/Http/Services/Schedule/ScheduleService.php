@@ -61,8 +61,6 @@ class ScheduleService
     public function delSchedule($request)
     {
         $id = (int) $request->input('id');
-
-        // Trả về giá trị đầu tiên của bảng category trong csdl nếu id nhận từ input khớp với id trong csdl
         $schedule = Schedule::where('id', $id)->first();
 
         if ($schedule) {

@@ -49,7 +49,6 @@
                                         <tr>
                                             <td style="text-align:center">{{ $stt++ }}</td>
                                             <td><a href="/admin/schedules/id={{ $schedule->tour->id }}/{{ $schedule->tour->url }}" class="link-name">{{ $schedule->tour->name }}</a></td>
-                                            {{-- <td>{{ $schedule->tour->name }}</td> --}}
                                             <td style="text-align:center">{{ $schedule->id }}</td>
                                             <td style="text-align:center">{{ \Carbon\Carbon::parse($schedule->date)->format('d-m-Y') }}</td>
                                             <td style="text-align:center">{{ $schedule->created_at }}</td>

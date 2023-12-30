@@ -9,8 +9,6 @@ class Destination extends Model
 {
     use HasFactory;
 
-    // protected $table = 'destinations';      // Nếu tên bảng và tên file (Menu) không trùng nhau thì phải khai báo table
-
     protected $fillable = [
         'name',
         'area',

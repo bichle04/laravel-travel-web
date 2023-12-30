@@ -89,6 +89,7 @@ Route::middleware(['auth', 'admin.access'])->group(function () {
         # Order
         Route::prefix('order')->group(function(){
             Route::get('/list-order',[OrderController::class,'index']);
+            Route::get('/list-user/{id}/{departure}', [OrderController::class, 'listUser']);
         });
 
         # Upload img

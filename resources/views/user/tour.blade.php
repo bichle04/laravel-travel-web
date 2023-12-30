@@ -7,7 +7,6 @@
         -->
         <div class="package-menu grid wide">
             <div class="package-menu__head">
-                {{-- <p id="Tours">TOUR Du Lịch</p> --}}
                 <h3 class="package-menu__heading"><span class="green-underline">{{ $title }}</span></h3>
             </div>
             <div class="row">
@@ -65,7 +64,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="pagination-des">{!! $tours->links() !!}</div>
+            <div class="pagination-des">{!! $tours->appends(request()->all())->links() !!}</div>
         </div>
     </div>
 @endsection

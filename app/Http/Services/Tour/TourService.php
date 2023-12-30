@@ -35,8 +35,8 @@ class TourService
                             ['id', $id],
                             ['status', 1]
                         ])
-                        ->with('destination')
-                        ->firstOrFail();
+                    ->with('destination')
+                    ->firstOrFail();
     }
 
     public function getIdDes($id, $idDes)
@@ -46,9 +46,9 @@ class TourService
                             ['id_destination', $idDes],
                             ['status', 1]
                         ])
-                        ->orderbyDesc('id')
-                        ->take(5)
-                        ->get();
+                    ->orderbyDesc('id')
+                    ->take(5)
+                    ->get();
     }
 
     public function getContent($id)

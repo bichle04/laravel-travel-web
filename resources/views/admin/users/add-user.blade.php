@@ -22,27 +22,12 @@
                                 <label class="text-lb">Tên người dùng:</label>
                                 <input type="text" class="form-control" name="name" 
                                     value="{{ old('name') }}" placeholder="Nhập tên người dùng">
-                                {{-- <select class="form-control" id="exampleFormControlSelect1" name="id_destination">
-                                    @foreach($destinations as $destination)
-                                        <option value="{{ $destination->id }}">{{ $destination->name }}</option>
-                                    @endforeach
-                                </select> --}}
                             </div>
                             <div class="form-group">
                                 <label class="text-lb">Email:</label>
                                 <input type="email" class="form-control" name="email" 
                                     value="{{ old('email') }}" placeholder="Nhập email">
                             </div>
-                            {{-- <div class="form-group">
-                                <label class="text-lb">Tác giả sách:</label>
-                                <input type="text" class="form-control" name="author" 
-                                    value="{{ old('author') }}" placeholder="Nhập tên tác giả">
-                            </div>
-                            <div class="form-group">
-                                <label class="text-lb">Nhà xuất bản:</label>
-                                <input type="text" class="form-control" name="nxb" 
-                                    value="{{ old('nxb') }}" placeholder="Nhập tên Nhà xuất bản">
-                            </div> --}}
                             <div class="form-group">
                                 <label class="text-lb">Số điện thoại:</label>
                                 <input type="tel" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Nhập số điện thoại">

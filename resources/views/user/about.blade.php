@@ -2,8 +2,8 @@
 
 @section('content')
     <!--
-                    ABOUT
-                -->
+        ABOUT
+    -->
     <div class="web-content web__wrap">
         <div class="special" style="margin-top: -10px">
             <div class="grid wide">
@@ -37,7 +37,6 @@
                                 <span class="special__current-price">500.000 VND</span>
                                 <span class="special__price-unit">/người</span>
                             </div>
-                            {{-- <a href="/tour" class="special__book-link">Khám phá ngay</a> --}}
                             <div class="btn__book" style="margin-top: 30px">
                                 <a href="/tour" class="special__book-link">Khám phá ngay</a>
                             </div>
@@ -57,7 +56,6 @@
                                 <p class="special__detail-desc">Chúng tôi luôn sẵn sàng hỗ trợ mọi lúc để bạn có một trải
                                     nghiệm
                                     du lịch không trở ngại.</p>
-                                {{-- <a href="./SERVICES/support24-7.html" class="special__detail-link">View more</a> --}}
                             </div>
                         </div>
                     </div>
@@ -69,7 +67,6 @@
                                 <p class="special__detail-desc">Đề cao sự sang trọng, an toàn và thoải mái cho mọi khách
                                     hàng.
                                 </p>
-                                {{-- <a href="./SERVICES/best-hotel.html" class="special__detail-link">View more</a> --}}
                             </div>
                         </div>
                     </div>
@@ -81,7 +78,6 @@
                                 <p class="special__detail-desc">Cung cấp những chuyến tham quan tốt nhất, mang đến trải
                                     nghiệm
                                     du lịch hoàn hảo và độc đáo.</p>
-                                {{-- <a href="./SERVICES/best-tours.html" class="special__detail-link">View more</a> --}}
                             </div>
                         </div>
                     </div>
@@ -93,7 +89,6 @@
                                 <p class="special__detail-desc">Bảo hiểm du lịch - An tâm mỗi chuyến đi, để bạn chỉ cần lo
                                     lắng
                                     về niềm vui khám phá.</p>
-                                {{-- <a href="./SERVICES/travel-insurance.html" class="special__detail-link">View more</a> --}}
                             </div>
                         </div>
                     </div>

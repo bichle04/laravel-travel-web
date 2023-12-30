@@ -17,8 +17,8 @@
                                 <form class="form-inline" action="" role="form">
                                     <div class="col">
                                         <div class="mb-3">
-                                            <input name="key" id="" class="form-control style-border"
-                                                placeholder="Tìm kiếm Tour">
+                                            <label for="findDate" class=""><b>Tìm đến ngày</b></label>
+                                            <input type="date" name="key" id="findDate" class="form-control style-border">
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="ri-search-line"></i>
                                             </button>
@@ -33,7 +33,6 @@
                                         <th style="width: 55%;">Tên Tour</th>
                                         <th style="width: 15%;">Lượt đặt</th>
                                         <th style="width: 20%;">Ngày khởi hành</th>
-                                        {{-- <th style="width: 10%; text-align:center">Chỉnh sửa</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,7 +43,7 @@
                                     @foreach ($schedules as $schedule)
                                         <tr>
                                             <td style="text-align:center">{{ $stt++ }}</td>
-                                            <td><a href="/admin/schedules/id={{ $schedule->id }}/{{ $schedule->url }}"
+                                            <td><a href="/admin/order/list-user/{{ $schedule->id }}/{{ $schedule->departure }}"
                                                     class="link-name">{{ $schedule->ten }}</a></td>
                                             <td style="text-align:center">{{ $schedule->Tong }}</td>
                             

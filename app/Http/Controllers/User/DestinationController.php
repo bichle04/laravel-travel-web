@@ -37,8 +37,6 @@ class DestinationController extends Controller
             'isDetail' => false,
             'class_css' => '__des'
         ]);
-
-        // dd($destination); 
     }
 
     public function inVN()

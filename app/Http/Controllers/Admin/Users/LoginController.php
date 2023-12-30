@@ -38,16 +38,11 @@ class LoginController extends Controller
         // Kiểm tra thông tin nhập vào có đúng với giá trị có trong csdl
         if (Auth::attempt([
             'email' => $request->input('email'), 
-            'password' => $request->input('password')],
-             $request->input('remember'))) {                // Kiểm tra remember tồn tại hay không. Có -> true, và ngược lại
+            'password' => $request->input('password')])) {
 
-                // Đúng thì chuyển sang trang admin (admin.main)
                 return redirect()->route('admin');              
         }
 
-        // Session::flash('error', 'Sai email hoặc mật khẩu');
-
-        // Sai thì trở lại trang đăng nhập và hiện lỗi
         session()->flash('error', 'Sai Email hoặc Mật khẩu!');
         return redirect()->back();
     }
@@ -66,12 +61,6 @@ class LoginController extends Controller
             'title' => 'Thêm Người Dùng'
         ]);   
     }
-
-    // public function handle(UserRequest $request)
-    // {
-    //     $this->userService->create($request);
-    //     return redirect()->back();  
-    // }
 
     public function handle_register(UserRequest $request)
     {

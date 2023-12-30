@@ -21,15 +21,15 @@ class TourAdminService
     {
         try {
             Tour::create([
-                'name' => (string) $request->input('name'),
-                'time' => (string) $request->input('time'),
-                'price' => (int) $request->input('price'),
-                'price_child' => (int) $request->input('price_child'),
-                'description' => (string) $request->input('description'),
-                'file' => (string) $request->input('file'),
-                'status' => (string) $request->input('status'),
+                'name'          => (string) $request->input('name'),
+                'time'          => (string) $request->input('time'),
+                'price'         => (int) $request->input('price'),
+                'price_child'   => (int) $request->input('price_child'),
+                'description'   => (string) $request->input('description'),
+                'file'          => (string) $request->input('file'),
+                'status'        => (string) $request->input('status'),
                 'id_destination' => (int) $request->input('id_destination'),
-                'url' => Str::slug($request->input('name'), '-')
+                'url'           => Str::slug($request->input('name'), '-')
             ]);
 
             session()->flash('success', 'Thêm Tour thành công');
@@ -69,8 +69,6 @@ class TourAdminService
     public function delTour($request)
     {
         $id = (int) $request->input('id');
-
-        // Trả về giá trị đầu tiên của bảng category trong csdl nếu id nhận từ input khớp với id trong csdl
         $tour = Tour::where('id', $id)->first();
 
         if ($tour) {

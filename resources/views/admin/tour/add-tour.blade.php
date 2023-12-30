@@ -31,16 +31,6 @@
                                 <input type="text" class="form-control" name="time" 
                                     value="{{ old('time') }}" placeholder="Nhập khoảng thời gian">
                             </div>
-                            {{-- <div class="form-group">
-                                <label class="text-lb">Tác giả sách:</label>
-                                <input type="text" class="form-control" name="author" 
-                                    value="{{ old('author') }}" placeholder="Nhập tên tác giả">
-                            </div>
-                            <div class="form-group">
-                                <label class="text-lb">Nhà xuất bản:</label>
-                                <input type="text" class="form-control" name="nxb" 
-                                    value="{{ old('nxb') }}" placeholder="Nhập tên Nhà xuất bản">
-                            </div> --}}
                             <div class="form-group">
                                 <label class="text-lb">Thêm ảnh:</label>
                                 <div>
