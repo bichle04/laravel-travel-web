@@ -115,7 +115,7 @@ function getThongke() {
         data: {month: month, year: year},
         url: '/admin/dashboard/handle-tour',
         success: function(data) {  
-            var tableBody = $('.table');
+            var tableBody = $('.table-db');
             tableBody.find('tr:has(td)').remove();
             data.forEach(function(item) {
                 var row = '<tr><td >' + item.ten + '</td><td style="text-align:center">' + item.Tong + '</td></tr>'; 

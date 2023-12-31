@@ -18,7 +18,7 @@
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
-                <li class="active active-menu">
+                <li class="{{ $atDashboard }}">
                     <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
                         <span class="ripple rippleEffect"></span><i class="ri-bar-chart-2-fill iq-arrow-left"></i>
                         <span>Thống kê</span><i class="ri-arrow-right-s-line iq-arrow-right"></i>
@@ -32,7 +32,7 @@
                         </li>
                     </ul>
                 </li>                
-                <li>
+                <li class="{{ $atDes }}">
                     <a href="#destination" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
                         <span class="ripple rippleEffect"></span><i class="ri-earth-line iq-arrow-left"></i>
                         <span>Điểm đến</span><i class="ri-arrow-right-s-line iq-arrow-right"></i>
@@ -50,7 +50,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="{{ $atTour }}">
                     <a href="#tours" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
                         <span class="ripple rippleEffect"></span><i class="ri-flight-takeoff-fill iq-arrow-left"></i>
                         <span>Tour</span><i class="ri-arrow-right-s-line iq-arrow-right"></i>
@@ -60,7 +60,7 @@
                         <li><a href="/admin/tours/list-tour"><i class="las la-th-list"></i>Danh sách các Tour</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="{{ $atSchedule }}">
                     <a href="#schedule" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
                         <span class="ripple rippleEffect"></span><i class="ri-calendar-event-fill iq-arrow-left"></i>
                         <span>Lịch trình</span><i class="ri-arrow-right-s-line iq-arrow-right"></i>
@@ -73,7 +73,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="{{ $atUser }}">
                     <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false">
                         <span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i>
                         <span>User</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
@@ -82,7 +82,7 @@
                         <li><a href="/admin/users/list-user"><i class="las la-th-list"></i>Danh sách User</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="{{ $atOrder }}">
                     <a href="/admin/order/list-order" class="iq-waves-effect">
                         <span class="ripple rippleEffect"></span><i class="ri-shopping-cart-2-line iq-arrow-left"></i>
                         <span>Danh sách đơn hàng</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>

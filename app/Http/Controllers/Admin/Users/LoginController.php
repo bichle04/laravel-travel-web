@@ -58,7 +58,12 @@ class LoginController extends Controller
     public function addUserByAdmin()
     {
         return view('admin.users.add-user', [
-            'title' => 'Thêm Người Dùng'
+            'title' => 'Thêm Người Dùng','atDashboard' => '',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => 'active active-menu',
+            'atOrder' => '',
         ]);   
     }
 

@@ -20,6 +20,12 @@ class OrderController extends Controller
     {
         return view('admin.order.list', [
             'title' => 'Danh sách đơn đặt Tour',
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => 'active active-menu',
             'schedules' => $this->orderService->getSchedule()
         ]);
     }
@@ -31,6 +37,12 @@ class OrderController extends Controller
         
         return view('admin.order.list-user', [
             'title'=>"Danh sách khách hàng",
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => 'active active-menu',
             'tourName' => $tourName->name,
             'date' => Carbon::parse($depature)->format('d-m-Y'),
             'bills' => $bill

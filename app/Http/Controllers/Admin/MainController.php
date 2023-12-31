@@ -20,6 +20,12 @@ class MainController extends Controller
     {
         return view('admin.dashboard.income', [
             'title' => 'Thống kê doanh thu',
+            'atDashboard' => 'active active-menu',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
         ]);
     }
 
@@ -33,7 +39,13 @@ class MainController extends Controller
     public function numberTour()
     {
         return view('admin.dashboard.tour', [
-            'title' => 'Thống kê số lượng đặt Tour'
+            'title' => 'Thống kê số lượng đặt Tour',
+            'atDashboard' => 'active active-menu',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
         ]);
     }
 

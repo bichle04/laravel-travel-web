@@ -24,6 +24,12 @@ class ScheduleController extends Controller
     {
         return view('admin.schedule.add-schedule', [
             'title' => 'Thêm lịch trình',
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => 'active active-menu',
+            'atUser' => '',
+            'atOrder' => '',
             'tours' => $this->scheduleService->getTour()
         ]);
     }
@@ -49,7 +55,13 @@ class ScheduleController extends Controller
     public function listSchedule()
     {
         return view('admin.schedule.list-schedule', [
-            'title' => 'Danh sách các Tour',
+            'title' => 'Danh sách lịch trình các Tour',
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => 'active active-menu',
+            'atUser' => '',
+            'atOrder' => '',
             'schedules' => $this->scheduleService->get()
         ]);
     }
@@ -58,6 +70,12 @@ class ScheduleController extends Controller
     {
         return view('admin.schedule.edit-schedule', [
             'title' => 'Chỉnh sửa thông tin Tour',
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => 'active active-menu',
+            'atUser' => '',
+            'atOrder' => '',
             'schedule' => $schedule,
             'tours' => $this->scheduleService->getTour()
         ]);
@@ -91,6 +109,12 @@ class ScheduleController extends Controller
 
         return view('admin.schedule.list-schedule',[
             'title' => 'Lịch trình của Tour - ' . $tour->name,
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => 'active active-menu',
+            'atUser' => '',
+            'atOrder' => '',
             'tour' => $tour,
             'schedules' => $schedules,
         ]);

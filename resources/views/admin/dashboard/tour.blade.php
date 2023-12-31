@@ -42,7 +42,7 @@
                                     <option value="asc">Tăng dần</option>
                                 </select>
                             </div>
-                            <table class="table table-striped table-bordered" style="width:100%;">
+                            <table class="table table-striped table-bordered table-db" style="width:100%;">
                                 <thead style="text-align:center">
                                     <tr>
                                         <th>Tên Tour</th>
@@ -61,4 +61,6 @@
             </div>
         </div>
     </div>
+
+    {{-- <script src="/assets/admin/js/dashboardTour.js"></script> --}}
 @endsection

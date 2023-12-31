@@ -23,6 +23,12 @@ class UserController extends Controller
     {
         return view('admin.users.list-user', [
             'title' => 'Danh sách người dùng',
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => 'active active-menu',
+            'atOrder' => '',
             'users' => $this->userService->getUser() 
         ]);
     }
@@ -31,6 +37,12 @@ class UserController extends Controller
     {
         return view('admin.users.edit', [
             'title' => 'Chỉnh sửa thông tin người dùng - ' . $user->name,
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => 'active active-menu',
+            'atOrder' => '',
             'user' => $user
         ]);
     }

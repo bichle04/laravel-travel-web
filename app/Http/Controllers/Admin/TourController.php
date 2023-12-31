@@ -23,6 +23,12 @@ class TourController extends Controller
     {
         return view('admin.tour.list-tour', [
             'title' => 'Danh sách các Tour',
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => 'active active-menu',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
             'tours' => $this->tourService->get()
         ]);
     }
@@ -31,6 +37,12 @@ class TourController extends Controller
     {
         return view('admin.tour.add-tour', [
             'title' => 'Thêm Tour',
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => 'active active-menu',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
             'destinations' => $this->tourService->getMenu()
         ]);   
     }
@@ -45,6 +57,12 @@ class TourController extends Controller
     {
         return view('admin.tour.edit-tour', [
             'title' => 'Chỉnh sửa thông tin Tour',
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => 'active active-menu',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
             'tour' => $tour,
             'destinations' => $this->tourService->getMenu()
         ]);
@@ -78,6 +96,12 @@ class TourController extends Controller
         $comments = $this->tourService->getComment($id);
         return view('admin.tour.detail',[
             'title' => 'Thông tin chi tiết - ' . $tour->name,
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => 'active active-menu',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
             'tour' => $tour,
             'programe' => $programe,
             'comments' => $comments
@@ -90,6 +114,12 @@ class TourController extends Controller
         $tour = $this->tourService->getId($id);
         return view('admin.tour.add-programe', [
             'title' => 'Thêm chương trình Tour: ' . $tour->name,
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => 'active active-menu',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
             'tour' => $tour
         ]);
     }
@@ -104,6 +134,12 @@ class TourController extends Controller
     {
         return view('admin.tour.edit-programe', [
             'title' => 'Chỉnh sửa chương trình Tour',
+            'atDashboard' => '',
+            'atDes' => '',
+            'atTour' => 'active active-menu',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
             'programe' => $programe
         ]);
     }

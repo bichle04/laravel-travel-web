@@ -21,7 +21,13 @@ class DestinationController extends Controller
     public function addDes() 
     {
         return view('admin.destination.add-destination', [
-            'title' => 'Thêm điểm đến'
+            'title' => 'Thêm điểm đến',
+            'atDashboard' => '',
+            'atDes' => 'active active-menu',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
         ]);
     }
 
@@ -35,6 +41,12 @@ class DestinationController extends Controller
     {
         return view('admin.destination.list-destination', [
             'title' => 'Danh sách các điểm đến',
+            'atDashboard' => '',
+            'atDes' => 'active active-menu',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
             'lists' => $this->destinationService->getAll()
         ]);
     }
@@ -43,6 +55,12 @@ class DestinationController extends Controller
     {
         return view('admin.destination.edit', [
             'title' => 'Chỉnh sửa điểm đến - ' . $destination->name,
+            'atDashboard' => '',
+            'atDes' => 'active active-menu',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
             'destination' => $destination
         ]);
     }
