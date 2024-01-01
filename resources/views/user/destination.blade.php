@@ -24,11 +24,11 @@
                                 </div>
                             </div>
 
-                            <a href="/diem-den/{{ $destination->id }}/{{ $destination->url }}.html" class="mobile-package__link"></a>
+                            <a href="/diem-den/{{ $destination->id }}/{{ $destination->url }}" class="mobile-package__link"></a>
                             <div class="package-cover hide-on-mobile-tablet">
                                 <h4 class="package-cover-head">{{ $destination->name }}</h4>
                                 <div class="package-btn">
-                                    <a href="/diem-den/{{ $destination->id }}/{{ $destination->url }}.html" class="package-btn-link">Xem thêm</a>
+                                    <a href="/diem-den/{{ $destination->id }}/{{ $destination->url }}" class="package-btn-link">Xem thêm</a>
                                 </div>
                             </div>
                         </div>

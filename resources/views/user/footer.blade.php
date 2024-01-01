@@ -35,51 +35,51 @@
                 </div>
                 <div class="col l-3 m-4 c-12">
                     <ul class="footer__list">
-                        <h3 class="footer__list-heading">Top destination</h3>
+                        <h3 class="footer__list-heading">Top điểm đến</h3>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="./PACKAGES/vietnam.html" class="footer__item-link">Viet Nam</a>
+                            <a href="/diem-den/7/anh-quoc" class="footer__item-link">Anh Quốc</a>
                         </li>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="./PACKAGES/thailand.html" class="footer__item-link">Thailand</a>
+                            <a href="/diem-den/1/thai-lan" class="footer__item-link">Thái Lan</a>
                         </li>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="./PACKAGES/japan.html" class="footer__item-link">Japan</a>
+                            <a href="/diem-den/2/nhat-ban" class="footer__item-link">Nhật Bản</a>
                         </li>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="./PACKAGES/italy.html" class="footer__item-link">Italy</a>
+                            <a href="/diem-den/3/han-quoc" class="footer__item-link">Hàn Quốc</a>
                         </li>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="./PACKAGES/greece.html" class="footer__item-link">Greece</a>
+                            <a href="/diem-den/6/trung-quoc" class="footer__item-link">Trung Quốc</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col l-3 m-4 c-12">
                     <ul class="footer__list">
-                        <h3 class="footer__list-heading">Quick links</h3>
+                        <h3 class="footer__list-heading">Tìm nhanh</h3>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="#" class="footer__item-link">Santorini</a>
+                            <a href="/diem-den/9/da-nang" class="footer__item-link">Đà Nẵng</a>
                         </li>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="#" class="footer__item-link">Tokyo</a>
+                            <a href="/diem-den/12/da-lat" class="footer__item-link">Đà Lạt</a>
                         </li>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="#" class="footer__item-link">Bangkok</a>
+                            <a href="/diem-den/15/mien-tay" class="footer__item-link">Miền Tây</a>
                         </li>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="#" class="footer__item-link">Venice</a>
+                            <a href="/diem-den/14/ha-long" class="footer__item-link">Hạ Long</a>
                         </li>
                         <li class="footer__item">
                             <i class="footer__item-icon fas fa-chevron-right"></i>
-                            <a href="#" class="footer__item-link">Maldives</a>
+                            <a href="/diem-den/10/phu-quoc" class="footer__item-link">Phú Quốc</a>
                         </li>
                     </ul>
                 </div>

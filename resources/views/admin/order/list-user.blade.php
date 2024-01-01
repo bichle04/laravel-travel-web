@@ -54,7 +54,7 @@
                                             <td style="text-align:center">{{ $stt++ }}</td>
                                             <td>{{ $bill->user->name }}</a></td>
                                             <td>{{ $bill->fname }}</td>
-                                            <td style="text-align:center">{{ $bill->phone }}</td>
+                                            <td style="text-align:center">0{{ $bill->phone }}</td>
                                             <td>{{ $bill->email }}</td>
                                             <td style="text-align:center">{{ $bill->qty_adult }}</td>
                                             <td style="text-align:center">{{ $bill->qty_child }}</td>

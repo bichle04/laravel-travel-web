@@ -51,6 +51,18 @@ class DestinationService
         return false;
     }
 
+    public function getIdAdmin($id)
+    {
+        return Destination::where('id', $id)->firstOrFail();
+    }
+
+    public function getTourAdmin($des)
+    {
+        return $des->tours()
+                   ->search()
+                   ->paginate(10);
+    }
+
 // HOME PAGE
     public function inVN_Home()
     {

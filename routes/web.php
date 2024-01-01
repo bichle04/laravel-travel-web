@@ -40,6 +40,7 @@ Route::middleware(['auth', 'admin.access'])->group(function () {
             Route::get('edit/{destination}', [DestinationController::class, 'editDes']);
             Route::post('edit/{destination}', [DestinationController::class, 'updateDes']);
             Route::DELETE('delDestination', [DestinationController::class, 'delDes']);
+            Route::get('/{id}/{url}', [DestinationController::class, 'getTourfromDes']);
         });
 
         # Tours

@@ -15,13 +15,13 @@
                 <li class="navbar__menu-item">
                     <div style="background-image: url({{ $tour->file}});" class="navbar__menu-item-img"></div>
                     <div class="navbar__menu-item-info">
-                        <a href="/tour-{{ $tour->id }}/{{ $tour->url}}.html" class="navbar__menu-item-city"
+                        <a href="/tour/id-{{ $tour->id }}/{{ $tour->url }}" class="navbar__menu-item-city"
                             id="shortText" title="{{ $tour->name }}">{{ $tour->name }}</a>
-                        <a href="/tour-{{ $tour->id }}/{{ $tour->url }}.html" class="navbar__menu-item-location">
+                        <a href="/tour/id-{{ $tour->id }}/{{ $tour->url }}" class="navbar__menu-item-location">
                             <i class="navbar__menu-item-location-icon fas fa-map-marker-alt"></i>
                             {{ $tour->destination->name }}
                         </a>
-                        <a href="/tour-{{ $tour->id }}/{{$tour->url }}.html" class="navbar__menu-item-price"
+                        <a href="/tour/id-{{ $tour->id }}/{{ $tour->url }}" class="navbar__menu-item-price"
                             style="--background-color:var(--yellow-grad)">
                             {!! \App\Helpers\Helper::price($tour->price) !!}
                         </a>
@@ -50,12 +50,12 @@
                     </div>
                 </div>
 
-                <a href="/diem-den/{{ $destination->id }}/{{ $destination->url }}.html"
+                <a href="/diem-den/{{ $destination->id }}/{{ $destination->url }}"
                     class="mobile-package__link"></a>
                 <div class="package-cover hide-on-mobile-tablet">
                     <h4 class="package-cover-head">{{ $destination->name }}</h4>
                     <div class="package-btn">
-                        <a href="/diem-den/{{ $destination->id }}/{{ $destination->url }}.html"
+                        <a href="/diem-den/{{ $destination->id }}/{{ $destination->url }}"
                             class="package-btn-link">Xem thêm</a>
                     </div>
                 </div>

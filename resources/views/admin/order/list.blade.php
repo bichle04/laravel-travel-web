@@ -17,8 +17,9 @@
                                 <form class="form-inline" action="" role="form">
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label for="findDate" class=""><b>Tìm đến ngày</b></label>
+                                            <label for="findDate" class=""><b>Tìm kiếm</b></label>
                                             <input type="date" name="key" id="findDate" class="form-control style-border">
+                                            <input name="keyTour" id="findTour" class="form-control style-border" placeholder="Tìm Tour ...">
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="ri-search-line"></i>
                                             </button>

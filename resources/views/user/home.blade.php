@@ -76,7 +76,7 @@
                             <div class="package-cover hide-on-mobile-tablet">
                                 <h4 class="package-cover-head">{{ $destination_out->name }}</h4>
                                 <div class="package-btn">
-                                    <a href="/diem-den/{{ $destination_out->id }}/{{ $destination_out->url }}.html"
+                                    <a href="/diem-den/{{ $destination_out->id }}/{{ $destination_out->url }}"
                                         class="package-btn-link">Xem thêm</a>
                                 </div>
                             </div>

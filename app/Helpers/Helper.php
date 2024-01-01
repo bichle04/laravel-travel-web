@@ -11,8 +11,9 @@ class Helper{
                 <tr>
                     <td>' . $list->id . '</td>
                     <td><img src="' . $list->file . '" width="200px"></td>
-                    <td>' . $list->name . '</td>
+                    <td><a class="link-des" href="/admin/destinations/' . $list->id . '/' . $list->url . '">' . $list->name . '</td>
                     <td>' . self::area($list->area) . '</td>
+                    <td>' . ($list->tours->count()) . '</td>
                     <td>' . self::status($list->status) . '</td>
                     <td>
                         <div class="flex align-items-center list-user-action">

@@ -127,7 +127,7 @@ class TourController extends Controller
     public function create(Request $request)
     {
         $this->tourService->addPrograme($request);
-        return redirect()->back();  
+        return redirect('/admin/tours/list-tour');  
     }
 
     public function editPrograme(Programe $programe)

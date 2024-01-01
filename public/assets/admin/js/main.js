@@ -59,7 +59,7 @@ function addRow() {
 
     var tableBody = $('.table-body');
 
-    var row = '<tr><td>'
+    var row = '<tr><td style="text-align:center">'
                     +  selectedId + 
                 '</td><td>' 
                     + selectedName +

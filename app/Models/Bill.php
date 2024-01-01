@@ -38,6 +38,9 @@ class Bill extends Model
                            ->orWhere('phone', 'like', '%' . $key . '%')
                            ->orWhere('email', 'like', '%' . $key . '%')
                            ->orWhere('fname', 'like', '%' . $key . '%');
+        } elseif($key = request()->keyTour) {
+            $query = $query->join('tours as tr', 'bills.id_tour', '=', 'tr.id')
+                           ->where('tr.name', 'like', '%' . $key . '%');
         }
         return $query;
     }

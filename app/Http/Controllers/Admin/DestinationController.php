@@ -85,4 +85,22 @@ class DestinationController extends Controller
             'error' => true
         ]);
     }
+
+    public function getTourfromDes(Request $request, $id, $url)
+    {
+        $destination = $this->destinationService->getIdAdmin($id); 
+        $tours = $this->destinationService->getTourAdmin($destination); 
+
+        return view('admin.tour.list-tour', [
+            'title' => $destination->name,
+            'atDashboard' => '',
+            'atDes' => 'active active-menu',
+            'atTour' => '',
+            'atSchedule' => '',
+            'atUser' => '',
+            'atOrder' => '',
+            'tours' => $tours,
+        ]);
+
+    }
 }

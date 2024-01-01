@@ -18,7 +18,7 @@
                                 <label class="text-lb">Chương trình:</label>
                                 <textarea class="form-control" id="editor" name="content">{{ old('content') }}</textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" style="font-weight: bold">Thêm Tour</button>
+                            <button type="submit" class="btn btn-primary" style="font-weight: bold">Thêm Chương trình</button>
                             <button type="reset" class="btn btn-danger new">Trở lại</button>
 
                             <!-- Tạo token -->

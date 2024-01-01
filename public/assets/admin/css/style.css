@@ -5626,3 +5626,11 @@ Add User Page
 .ri-star-fill {
   color: #F3B108;
 }
+
+.link-des {
+  color: black;
+}
+
+.link-des:hover {
+  color: var(--iq-primary);
+}

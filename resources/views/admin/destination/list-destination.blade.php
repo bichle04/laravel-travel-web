@@ -31,11 +31,12 @@
                             <table class="table table-striped table-bordered" style="width:100%; text-align:center">
                                 <thead>
                                     <tr>
-                                        <th width="10%">ID</th>
+                                        <th width="7%">ID</th>
                                         <th width="25%">Ảnh</th>
-                                        <th width="20%">Điểm đến</th>
-                                        <th width="15%">Điểm đến</th>
-                                        <th width="15%">Trạng thái</th>
+                                        <th width="18%">Điểm đến</th>
+                                        <th width="15%">Khu vực</th>
+                                        <th width="10%">Số Tour</th>
+                                        <th width="10%">Trạng thái</th>
                                         <th width="15%">Chỉnh sửa</th>
                                     </tr>
                                 </thead>
