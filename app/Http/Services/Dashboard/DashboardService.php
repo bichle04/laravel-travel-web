@@ -9,9 +9,9 @@ class DashboardService
 {
     public function handleIncome($year)
     {
-        $results = Bill::selectRaw('MONTH(departure) as thang, SUM(total_price) as Doanhthu')
-                        ->whereYear('departure', $year)
-                        ->groupByRaw('MONTH(departure)')
+        $results = Bill::selectRaw('MONTH(created_at) as thang, SUM(total_price) as Doanhthu')
+                        ->whereYear('created_at', $year)
+                        ->groupByRaw('MONTH(created_at)')
                         ->get();
         return $results;
     }
