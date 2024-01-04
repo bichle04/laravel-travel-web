@@ -61,12 +61,11 @@ class BookingService
     public function getSchedule()
     {
         return Bill::join('tours', 'bills.id_tour', '=', 'tours.id')
-        ->selectRaw('tours.id as id,tours.url as url,tours.name as ten, COUNT(bills.id_user) as Tong ,departure')
-
-         ->groupBy('bills.id_tour','departure')
-         ->orderBy('departure', 'asc')
-         ->search()
-         ->paginate(10);
+                    ->selectRaw('tours.id as id,tours.url as url,tours.name as ten, COUNT(bills.id_user) as Tong ,departure')
+                    ->groupBy('bills.id_tour','departure')
+                    ->orderBy('departure', 'asc')
+                    ->search()
+                    ->paginate(10);
     }
 
     public function getName($id)

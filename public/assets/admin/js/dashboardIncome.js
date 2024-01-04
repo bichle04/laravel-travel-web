@@ -15,8 +15,7 @@ $(function() {
         xkey: 'thang', 
         ykeys: ['Doanhthu'],
         labels: ['Doanhthu'],
-        resize: true,
-        xLabelAngle: 60
+        resize: true
     });
 
     // Set default value for the year input to the current year
