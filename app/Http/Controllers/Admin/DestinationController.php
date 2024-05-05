@@ -17,7 +17,7 @@ class DestinationController extends Controller
     {
         $this->destinationService = $destinationService;
     }
-
+ 
     public function addDes() 
     {
         return view('admin.destination.add-destination', [
