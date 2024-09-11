@@ -45,6 +45,9 @@
 									<button type="submit" class="btn btn-primary btn-block">
 										Đăng nhập
 									</button>
+									<a href="{{ url('auth/google') }}" class="btn login-with-google-btn" >
+										Đăng nhập với Google
+									</a>
 								</div>
 								<div class="mt-4 text-center">
 									Bạn chưa có tài khoản? <a href="/dang-ky">Tạo tài khoản</a>

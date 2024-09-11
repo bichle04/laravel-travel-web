@@ -2,8 +2,8 @@
 
 @section('content')
     <!--
-            DETAIL
-        -->
+        DETAIL
+    -->
     <div class="web-content web__wrap">
         <div class="special">
             <div class="grid wide">
@@ -37,14 +37,13 @@
                                 </span>
                             </div>
                             <div class="special__price">
-                                <span class="special__price-unit">Trẻ em: </span>
+                                <span class="special__price-unit">Trẻ emm: </span>
                                 <span class="special__current-price" style="margin-left: auto; color: #1bbc9b;">
                                     {!! \App\Helpers\Helper::price($tour->price_child) !!}
                                 </span>
                             </div>
-                            <div class="special__desc">
+                            <div class="special__desc tour__des">
                                 {!! $tour->description !!}
-                                <button class="read-more-btn">Xem thêm</button>
                             </div>
                             <div class="btn__book">
                                 @if ($tour->price != null && $tour->price_child != null)
@@ -67,37 +66,13 @@
                             </div>
                         </div>
                     </div>
-                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                    <script>
-                        $(document).ready(function() {
-                            $('.special__desc').each(function() {
-                                var $description = $(this);
-                                var content = $description.html();
 
-                                if (content.length > 700) {
-                                    var shortContent = content.substr(0, 700) + '...';
-                                    $description.html(shortContent);
-
-                                    var $readMoreBtn = $('<button class="read-more-btn">Xem thêm</button>');
-                                    $description.append($readMoreBtn);
-
-                                    $readMoreBtn.on('click', function() {
-                                        $description.html(content);
-                                        $('.read-more-btn').css('display', 'none');
-                                    });
-                                } else {
-                                    $readMoreBtn.css('display', 'none');
-                                }
-                            });
-                        });
-                    </script>
                     <div class="col l-12" style="margin: 30px 0">
                         <h3 class="package-menu__heading"><span class="blue-underline">Chương trình Tour</span></h3>
 
                         @if ($programe)
-                            <div class="special__desc">
+                            <div class="special__desc tour-program__desc">
                                 {!! $programe->content !!}
-                                <button class="read-more-btn">Xem thêm</button>
                             </div>
                         @else
                             <div class="special__blank">
@@ -197,6 +172,49 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Mo ta Tour
+            $('.tour__des').each(function() {
+                var $description = $(this);
+                var content = $description.html();
+
+                if (content.length > 700) {
+                    var shortContent = content.substr(0, 700) + '...';
+                    $description.html(shortContent);
+
+                    var $readMoreBtn = $('<button class="read-more-btn">Xem thêm</button>');
+                    $description.after($readMoreBtn);
+
+                    $readMoreBtn.on('click', function() {
+                        $description.html(content);
+                        $readMoreBtn.css('display', 'none');
+                    });
+                }
+            });
+
+            // Chuong trinh Tour
+            $('.tour-program__desc').each(function() {
+                var $programDescription = $(this);
+                var programContent = $programDescription.html();
+
+                if (programContent.length > 700) {
+                    var shortProgramContent = programContent.substr(0, 700) + '...';
+                    $programDescription.html(shortProgramContent);
+
+                    var $programReadMoreBtn = $('<button class="read-more-btn">Xem thêm</button>');
+                    $programDescription.after($programReadMoreBtn);
+
+                    $programReadMoreBtn.on('click', function() {
+                        $programDescription.html(programContent);
+                        $programReadMoreBtn.css('display', 'none');
+                    });
+                }
+            });
+        });
+    </script>
+
     <script>
         var _csrf = '{{ csrf_token() }}';
         $(document).ready(function() {
@@ -219,7 +237,7 @@
 
                 $('#btn_submit').click(function(e) {
                     e.preventDefault();
-            
+
                     var id_tour = $('#id_tour').val();
                     var id_user = $('#id_user').val();
                     var content = $('#content').val();

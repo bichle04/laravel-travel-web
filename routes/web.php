@@ -11,11 +11,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\User\BookingController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Users\GoogleController;
 
 
 // Đăng nhập
 Route::get('dang-nhap', [LoginController::class, 'login'])->name('login');
 Route::post('dang-nhap/xu-ly-dang-nhap', [LoginController::class, 'handle_login']);
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('dang-nhap/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 // Đăng ký
 Route::get('dang-ky', [LoginController::class, 'register'])->name('register');
