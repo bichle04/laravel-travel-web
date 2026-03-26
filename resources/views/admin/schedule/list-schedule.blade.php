@@ -71,7 +71,7 @@
                                 </tbody>
                             </table>
                             {{-- Tạo liên kết phân trang --}}
-                            <div style="text-align: center">{!! $schedules->appends(request()->all())->links() !!}</div>
+                            <div class="d-flex justify-content-center">{!! $schedules->appends(request()->all())->links() !!}</div>
                         </div>
                     </div>
                 </div>

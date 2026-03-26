@@ -144,7 +144,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div style="text-align: center; margin-bottom: 20px">{!! $comments->appends(request()->all())->links() !!}</div>
+                        <div class="d-flex justify-content-center" style="margin-bottom: 20px">{!! $comments->appends(request()->all())->links() !!}</div>
                     </div>
                 </div>
             </div>

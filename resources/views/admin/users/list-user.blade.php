@@ -83,7 +83,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div style="text-align: center">{!! $users->appends(request()->all())->links() !!}</div>
+                        <div class="d-flex justify-content-center">{!! $users->appends(request()->all())->links() !!}</div>
                     </div>
                 </div>
             </div>

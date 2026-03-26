@@ -64,7 +64,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div style="text-align: center">{!! $bills->appends(request()->all())->links() !!}</div>
+                            <div class="d-flex justify-content-center">{!! $bills->appends(request()->all())->links() !!}</div>
                         </div>
                     </div>
                 </div>
