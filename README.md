@@ -1,4 +1,4 @@
-# Laravel Travel Web
+# Booking Tour Web
 
 A comprehensive web application for travel management, allowing users to browse destinations, book tours, and manage travel experiences. The platform includes a robust admin panel for managing content, users, and orders.
 
